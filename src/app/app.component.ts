@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
+  selector: 'hmmapp-root',
+  template: `<h2>Home made message</h2>
+  <gaslog-comp></gaslog-comp>`,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
