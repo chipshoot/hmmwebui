@@ -23,8 +23,10 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/ngf-bootstrap/dist/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              {
+                "input": "./node_modules/bootstrap/dist/css/bootstrap.css"
+              }
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
