@@ -1,23 +1,23 @@
-import { Component } from "@angular/core"
+import { Component, Input, Output, EventEmitter} from "@angular/core"
 
 @Component({
     selector : 'gasLogThumbnail',
-    template : '{{htmlstring}}'
+    template : `<div>
+    <div>Id : {{gaslog.id}}</div>
+    <div>Log Date : {{gaslog.createDate}} </div>
+    <div>Distance : {{gaslog.distance}}km </div>
+    <div>Gas : {{gaslog.gas}}lt </div> 
+    <div>Price : \${{gaslog.price}}\\lt </div>
+    <div>Total : \${{gaslog.price * gaslog.gas}} </div>
+    <div>Last Modify Date : {{gaslog.lastModifyDate}} </div>
+    <button class="btn btn-second" (click)="editGasLog()">Edit</button>
+    </div>`
 })
 export class GasLogThumbnailComponent{
-    //gaslog : any
+    @Input() gaslog : any
+    @Output() eventClick = new EventEmitter()
 
-    gaslog = {
-        id  : 1,
-        distance : 400,
-        gas : 41.5,
-        price : 0.98,
-        discounts : [],
-        gasStation : 'Costco',
-        createDate: '2018-11-15',
-        lastModifyDate : '2008-11-15'
+    editGasLog(){
+        this.eventClick.emit(this.gaslog.id)
     }
-
-    htmlstring = '<div> <div>Log Date : gaslog.createDate <div>Distance : gaslog.distance km </div> <div>Gas : gaslog.gas lt </div> <div>Price : \$ gaslog.price\\lt </div> <div>Total : \$ gaslog.price </div></div>'
-    
 }
